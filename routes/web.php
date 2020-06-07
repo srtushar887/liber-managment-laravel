@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Auth\AdminLoginController@showLoginform');
 
 Auth::routes();
 
@@ -32,6 +30,14 @@ Route::group(['middleware' => ['auth:admin']], function() {
     Route::prefix('admin')->group(function() {
         Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 
+        //profile
+        Route::get('/profile', 'Admin\AdminController@profile')->name('admin.profile');
+        Route::post('/profile-update', 'Admin\AdminController@profile_update')->name('admin.profile.update');
+
+        //change password
+        Route::get('/change-password', 'Admin\AdminController@change_password')->name('admin.change.password');
+        Route::post('/change-password-update', 'Admin\AdminController@change_password_update')->name('admin.password.update');
+
         //general settings
         Route::get('/general-setting', 'Admin\AdminController@general_setting')->name('admin.general.settings');
         Route::post('/general-setting-save', 'Admin\AdminController@general_setting_save')->name('admin.general.setting.update');
@@ -47,11 +53,15 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/delete-user', 'Admin\AdminUserController@delete_user')->name('admin.user.delete');
         Route::post('/user-password-change-save', 'Admin\AdminUserController@user_change_password_save')->name('admin.user.chnage.password.save');
 
-        //taxi category
-        Route::get('/taxi-category', 'Admin\AdminTaxiController@taxi_category')->name('admin.taxi.category');
-        Route::post('/taxi-category-save', 'Admin\AdminTaxiController@taxi_category_save')->name('admin.taxi.category.save');
-        Route::post('/taxi-category-update', 'Admin\AdminTaxiController@taxi_category_update')->name('admin.taxi.category.update');
-        Route::post('/taxi-category-delete', 'Admin\AdminTaxiController@taxi_category_delete')->name('admin.taxi.category.delete');
+
+        //all category management
+        Route::get('/category-management', 'Admin\AdminCategoryController@category_management')->name('admin.category.management');
+        Route::post('/category-management-save', 'Admin\AdminCategoryController@category_management_save')->name('admin.category.save');
+        Route::post('/category-management-update', 'Admin\AdminCategoryController@category_management_update')->name('admin.category.update');
+        Route::post('/category-management-delete', 'Admin\AdminCategoryController@category_management_delete')->name('admin.category.delete');
+
+
+
 
         //rider managemnt
         Route::get('/rider-management', 'Admin\AdminRiderController@rider_management')->name('admin.riger.management');
@@ -88,11 +98,24 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/delivery-boy-update', 'Admin\AdminMultivendorController@deliver_boy_update')->name('admin.delivery.boy.update');
         Route::post('/delivery-boy-delete', 'Admin\AdminMultivendorController@deliver_boy_delete')->name('admin.delivery.boy.delete');
 
-        //truck category
-        Route::get('/truck-category', 'Admin\AdminTruckController@truck_category')->name('admin.truck.category');
-        Route::post('/truck-category-save', 'Admin\AdminTruckController@truck_category_save')->name('admin.truck.category.save');
-        Route::post('/truck-category-update', 'Admin\AdminTruckController@truck_category_update')->name('admin.truck.category.update');
-        Route::post('/truck-category-delete', 'Admin\AdminTruckController@truck_category_delete')->name('admin.truck.category.delete');
+        //provider management
+        Route::get('/provider-create', 'Admin\AdminProviderController@create_provider')->name('admin.provider.create');
+        Route::post('/provider-save', 'Admin\AdminProviderController@save_provider')->name('admin.provider.save');
+        Route::get('/provider-manage', 'Admin\AdminProviderController@manage_provider')->name('admin.provider.manager');
+        Route::get('/provider-edit/{id}', 'Admin\AdminProviderController@edit_provider')->name('admin.provider.edit');
+        Route::post('/provider-update', 'Admin\AdminProviderController@update_provider')->name('admin.provider.update');
+        Route::post('/provider-delete', 'Admin\AdminProviderController@delete_provider')->name('admin.provider.delete');
+        Route::post('/provider-password-change', 'Admin\AdminProviderController@password_change_provider')->name('admin.provider.chnage.password.save');
+
+
+       //driver management
+        Route::get('/create-driver', 'Admin\AdminDriverController@create_driver')->name('admin.driver.create');
+        Route::post('/save-driver', 'Admin\AdminDriverController@save_driver')->name('admin.driver.save');
+        Route::get('/manage-driver', 'Admin\AdminDriverController@manage_driver')->name('admin.driver.manage');
+        Route::get('/edit-driver/{id}', 'Admin\AdminDriverController@edit_driver')->name('admin.driver.edit');
+        Route::post('/update-driver', 'Admin\AdminDriverController@update_driver')->name('admin.driver.update');
+        Route::post('/delete-driver', 'Admin\AdminDriverController@delete_driver')->name('admin.driver.delete');
+        Route::post('/password-change-driver', 'Admin\AdminDriverController@password_change_driver')->name('admin.driver.chnage.password.save');
 
     });
 });

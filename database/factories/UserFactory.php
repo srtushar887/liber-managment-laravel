@@ -108,3 +108,42 @@ $factory->define(\App\truck_category::class, function (Faker $faker) {
         'category_name' => "Truck Category".' '.rand(1,20),
     ];
 });
+
+
+$factory->define(\App\all_category::class, function (Faker $faker) {
+    return [
+        'category_type' => rand(1,5),
+        'category_name' => "Category".' '.rand(1,20),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+
+
+$factory->define(\App\Provider::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'phone_number' => $faker->phoneNumber,
+        'dob' => $faker->date,
+        'gender' => rand(1,2),
+        'address' => $faker->address,
+        'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+        'status' => rand(1,2),
+    ];
+});
+
+
+$factory->define(\App\Driver::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'phone_number' => $faker->phoneNumber,
+        'dob' => $faker->date,
+        'gender' => rand(1,2),
+        'driver_type' => rand(1,3),
+        'address' => $faker->address,
+        'driving_license' => "https://www.chanchao.com.tw/images/default.jpg",
+        'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+        'status' => rand(1,2),
+    ];
+});

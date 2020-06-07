@@ -40,7 +40,7 @@
             <div class="">
                 <div class="main-menu-header">
                     @if (!empty(Auth::user()->profile_image))
-                        <img class="img-radius" src="{{asset('assets/admin/')}}/images/user/avatar-2.jpg" alt="User-Profile-Image">
+                        <img class="img-radius" src="{{asset(Auth::user()->profile_image)}}" alt="User-Profile-Image" style="height: 50px;width: 50px;">
                     @else
                         <img class="img-radius" src="https://ih1.redbubble.net/image.1046392292.3346/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="User-Profile-Image">
                     @endif
@@ -50,8 +50,8 @@
                 </div>
                 <div class="collapse" id="nav-user-link">
                     <ul class="list-unstyled">
-                        <li class="list-group-item"><a href="user-profile.html"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
-                        <li class="list-group-item"><a href="#!"><i class="feather icon-settings m-r-5"></i>Change Password</a></li>
+                        <li class="list-group-item"><a href="{{route('admin.profile')}}"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
+                        <li class="list-group-item"><a href="{{route('admin.change.password')}}"><i class="feather icon-settings m-r-5"></i>Change Password</a></li>
                         <li class="list-group-item"><a href="{{route('admin.logout')}}"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                     </ul>
                 </div>
@@ -80,13 +80,32 @@
                 <li class="nav-item">
                     <a href="{{route('admin.manager.user')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage User</span></a>
                 </li>
+
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Provider Management</label>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.provider.create')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Create provider</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.provider.manager')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Manager provider</span></a>
+                </li>
+
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Category Management</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Manage Category</span></a>
+                </li>
+
+
                 <li class="nav-item pcoded-menu-caption">
                     <label>Taxi Management</label>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('admin.taxi.category')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Taxi Category</span></a>
-                </li>
                 <li class="nav-item">
                     <a href="{{route('admin.riger.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Rider Management</span></a>
                 </li>
@@ -96,9 +115,6 @@
                     <label>Restaurant Management</label>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('admin.multivendor.food.item')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Food Item</span></a>
-                </li>
 
                 <li class="nav-item">
                     <a href="{{route('admin.create.restaurant')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Create Restaurant</span></a>
@@ -121,18 +137,19 @@
                     <a href="{{route('admin.store.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage Store</span></a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{route('admin.deliver.boy')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Delivery Boy</span></a>
-                </li>
 
 
                 <li class="nav-item pcoded-menu-caption">
-                    <label>Truck Management</label>
+                    <label>Driver Management</label>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.truck.category')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Truck Category</span></a>
+                    <a href="{{route('admin.driver.create')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Create Driver</span></a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.driver.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manager Driver</span></a>
+                </li>
+
 
 
 
@@ -240,16 +257,20 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="{{asset('assets/admin/')}}/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                            <span>John Doe</span>
-                            <a href="auth-signin.html" class="dud-logout" title="Logout">
+                            @if (!empty(Auth::user()->profile_image))
+                                <img class="img-radius" src="{{asset(Auth::user()->profile_image)}}" alt="User-Profile-Image" style="height: 50px;width: 50px;">
+                            @else
+                                <img class="img-radius" src="https://ih1.redbubble.net/image.1046392292.3346/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="User-Profile-Image">
+                            @endif
+                            <span>{{Auth::user()->name}}</span>
+                            <a href="{{route('admin.logout')}}" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                            <li><a href="{{route('admin.profile')}}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                            <li><a href="{{route('admin.change.password')}}" class="dropdown-item"><i class="feather icon-mail"></i> Change Password</a></li>
+                            <li><a href="{{route('admin.logout')}}" class="dropdown-item"><i class="feather icon-lock"></i> Log Out</a></li>
                         </ul>
                     </div>
                 </div>
