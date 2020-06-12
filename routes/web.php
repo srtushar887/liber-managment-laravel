@@ -54,13 +54,37 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/user-password-change-save', 'Admin\AdminUserController@user_change_password_save')->name('admin.user.chnage.password.save');
 
 
-        //all category management
-        Route::get('/category-management', 'Admin\AdminCategoryController@category_management')->name('admin.category.management');
-        Route::post('/category-management-save', 'Admin\AdminCategoryController@category_management_save')->name('admin.category.save');
-        Route::post('/category-management-update', 'Admin\AdminCategoryController@category_management_update')->name('admin.category.update');
-        Route::post('/category-management-delete', 'Admin\AdminCategoryController@category_management_delete')->name('admin.category.delete');
+        //all taxi category management
+        Route::get('/taxi-category-management', 'Admin\AdminCategoryController@taxi_category_management')->name('admin.taxt.category.management');
+        Route::post('/taxi-category-management-save', 'Admin\AdminCategoryController@taxi_category_management_save')->name('admin.category.save');
+        Route::post('/taxi-category-management-update', 'Admin\AdminCategoryController@taxi_category_management_update')->name('admin.category.update');
+        Route::post('/taxi-category-management-delete', 'Admin\AdminCategoryController@taxi_category_management_delete')->name('admin.category.delete');
 
 
+
+        //all truck category management
+        Route::get('/truck-category-management', 'Admin\AdminCategoryController@truck_category_management')->name('admin.truck.category.management');
+        Route::post('/truck-category-management-save', 'Admin\AdminCategoryController@truck_category_management_save')->name('admin.truck.category.save');
+        Route::post('/truck-category-management-update', 'Admin\AdminCategoryController@truck_category_management_update')->name('admin.truck.category.update');
+        Route::post('/truck-category-management-delete', 'Admin\AdminCategoryController@truck_category_management_delete')->name('admin.truck.category.delete');
+
+        //all machinery category management
+        Route::get('/machinery-category-management', 'Admin\AdminCategoryController@machinery_category_management')->name('admin.machinery.category.management');
+        Route::post('/machinery-category-management-save', 'Admin\AdminCategoryController@machinery_category_management_save')->name('admin.machinery.category.save');
+        Route::post('/machinery-category-management-update', 'Admin\AdminCategoryController@machinery_category_management_update')->name('admin.machinery.category.update');
+        Route::post('/machinery-category-management-delete', 'Admin\AdminCategoryController@machinery_category_management_delete')->name('admin.machinery.category.delete');
+
+        //all machinery category management
+        Route::get('/store-category-management', 'Admin\AdminCategoryController@store_category_management')->name('admin.store.category.management');
+        Route::post('/store-category-management-save', 'Admin\AdminCategoryController@store_category_management_save')->name('admin.store.category.save');
+        Route::post('/store-category-management-update', 'Admin\AdminCategoryController@store_category_management_update')->name('admin.store.category.update');
+        Route::post('/store-category-management-delete', 'Admin\AdminCategoryController@store_category_management_delete')->name('admin.store.category.delete');
+
+        //all restaurant category management
+        Route::get('/restaurant-category-management', 'Admin\AdminCategoryController@restaurant_category_management')->name('admin.restaurant.category.management');
+        Route::post('/restaurant-category-management-save', 'Admin\AdminCategoryController@restaurant_category_management_save')->name('admin.restaurant.category.save');
+        Route::post('/restaurant-category-management-update', 'Admin\AdminCategoryController@restaurant_category_management_update')->name('admin.restaurant.category.update');
+        Route::post('/restaurant-category-management-delete', 'Admin\AdminCategoryController@restaurant_category_management_delete')->name('admin.restaurant.category.delete');
 
 
         //rider managemnt

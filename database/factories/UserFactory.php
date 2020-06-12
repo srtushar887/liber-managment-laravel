@@ -147,3 +147,46 @@ $factory->define(\App\Driver::class, function (Faker $faker) {
         'status' => rand(1,2),
     ];
 });
+
+
+
+$factory->define(\App\taxi_category::class, function (Faker $faker) {
+    return [
+        'category_name' => "taxi Category".Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+
+
+$factory->define(\App\truck_category::class, function (Faker $faker) {
+    return [
+        'category_name' => "truck Category".' '.Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+
+
+$factory->define(\App\machinery_category::class, function (Faker $faker) {
+    return [
+        'category_name' => "machinery Category".' '.Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+
+
+
+$factory->define(\App\store_category::class, function (Faker $faker) {
+    return [
+        'category_name' => "store Category".' '.Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+
+
+$factory->define(\App\restaurant_category::class, function (Faker $faker) {
+    return [
+        'category_name' => "restaurant Category".' '.Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+

@@ -98,7 +98,20 @@
                     <label>Category Management</label>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Manage Category</span></a>
+                    <a href="{{route('admin.taxt.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Taxi Category</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.truck.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Truck Category</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.machinery.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Machinery Category</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.store.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Store Category</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.restaurant.category.management')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Restaurant Category</span></a>
                 </li>
 
 

@@ -85,6 +85,22 @@ class AdminController extends Controller
         $gen->site_email = $request->site_email;
         $gen->site_phone = $request->site_phone;
         $gen->site_currency = $request->site_currency;
+        $gen->copyright_content = $request->copyright_content;
+        $gen->play_store_link = $request->play_store_link;
+        $gen->comission = $request->comission;
+        $gen->tax = $request->tax;
+        $gen->driver_ride_cancel_charge = $request->driver_ride_cancel_charge;
+        $gen->user_ride_cancel_charge_4_3 = $request->user_ride_cancel_charge_4_3;
+        $gen->user_ride_cancel_charge_3_2 = $request->user_ride_cancel_charge_3_2;
+        $gen->user_ride_cancel_charge_2_0 = $request->user_ride_cancel_charge_2_0;
+        $gen->app_store_link = $request->app_store_link;
+        $gen->provider_accept_timeout = $request->provider_accept_timeout;
+        $gen->provider_search_radius = $request->provider_search_radius;
+        $gen->sos_number = $request->sos_number;
+        $gen->google_map_api_key = $request->google_map_api_key;
+        $gen->fb_app_version = $request->fb_app_version;
+        $gen->fb_app_id = $request->fb_app_id;
+        $gen->fb_app_secret = $request->fb_app_secret;
         $gen->address = $request->address;
         $gen->save();
 

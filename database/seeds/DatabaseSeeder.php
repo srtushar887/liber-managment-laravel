@@ -20,8 +20,13 @@ class DatabaseSeeder extends Seeder
 //        factory(\App\multivendor_store::class,50)->create();
 //        factory(\App\multivendor_delivery_boy::class,50)->create();
 //        factory(\App\truck_category::class,50)->create();
-        factory(\App\all_category::class,50)->create();
+//        factory(\App\all_category::class,50)->create();
 //        factory(\App\Provider::class,50)->create();
 //        factory(\App\Driver::class,100)->create();
+//        factory(\App\taxi_category::class,50)->create();
+//        factory(\App\truck_category::class,50)->create();
+//        factory(\App\machinery_category::class,50)->create();
+//        factory(\App\store_category::class,50)->create();
+        factory(\App\restaurant_category::class,50)->create();
     }
 }

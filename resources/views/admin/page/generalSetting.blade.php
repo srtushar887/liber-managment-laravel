@@ -44,6 +44,70 @@
                                        <input type="text" name="site_currency" value="{{$gen->site_currency}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                    </div>
                                    <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Copyright Content</label>
+                                       <input type="text" name="copyright_content" value="{{$gen->copyright_content}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Play Store Link</label>
+                                       <input type="text" name="play_store_link" value="{{$gen->play_store_link}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Commission(%)</label>
+                                       <input type="text" name="comission" value="{{$gen->comission}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Tax(%)</label>
+                                       <input type="text" name="tax" value="{{$gen->tax}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Driver Ride Cancel Charge</label>
+                                       <input type="text" name="driver_ride_cancel_charge" value="{{$gen->driver_ride_cancel_charge}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">User Ride Cancel Charge in 4 to 3</label>
+                                       <input type="text" name="user_ride_cancel_charge_4_3" value="{{$gen->user_ride_cancel_charge_4_3}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">User Ride Cancel Charge in 3 to 2</label>
+                                       <input type="text" name="user_ride_cancel_charge_3_2" value="{{$gen->user_ride_cancel_charge_3_2}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">User Ride Cancel Charge in 2 to 0</label>
+                                       <input type="text" name="user_ride_cancel_charge_2_0" value="{{$gen->user_ride_cancel_charge_2_0}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">App Store Link</label>
+                                       <input type="text" name="app_store_link" value="{{$gen->app_store_link}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Provider Accept Timeout</label>
+                                       <input type="text" name="provider_accept_timeout" value="{{$gen->provider_accept_timeout}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">Provider Search Radius</label>
+                                       <input type="text" name="provider_search_radius" value="{{$gen->provider_search_radius}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">SOS Number</label>
+                                       <input type="text" name="sos_number" value="{{$gen->sos_number}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">GooGle Map Api Key</label>
+                                       <input type="text" name="google_map_api_key" value="{{$gen->google_map_api_key}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">FB App Version</label>
+                                       <input type="text" name="fb_app_version" value="{{$gen->fb_app_version}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">FB App ID</label>
+                                       <input type="text" name="fb_app_id" value="{{$gen->fb_app_id}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
+                                       <label for="exampleInputEmail1">FB App Secret</label>
+                                       <input type="text" name="fb_app_secret" value="{{$gen->fb_app_secret}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                   </div>
+                                   <div class="form-group col-md-6 fill">
                                        <label for="exampleInputEmail1">Logo</label>
                                        <br>
                                        <img src="{{asset($gen->logo)}}"  style="height: 100px;width: 100px;">
