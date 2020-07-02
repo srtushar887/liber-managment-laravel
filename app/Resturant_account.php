@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Provider extends Authenticatable
+class Resturant_account extends Authenticatable
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class Provider extends Authenticatable
      * @var array
      */
 
-    protected $guard = 'provider';
+    protected $guard = 'restaurant';
 
     protected $fillable = [
         'name', 'email', 'password',

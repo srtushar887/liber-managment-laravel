@@ -7,6 +7,7 @@ use App\multivendor_delivery_boy;
 use App\multivendor_food_item;
 use App\multivendor_restaurent;
 use App\multivendor_store;
+use App\Multivendor_store_account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
@@ -21,14 +22,15 @@ class AdminMultivendorController extends Controller
 
     public function store_save(Request $request)
     {
-        $new_store = new multivendor_store();
+
+        $new_store = new Multivendor_store_account();
         $new_store->store_name = $request->store_name;
         $new_store->store_email = $request->store_email;
         $new_store->store_address = $request->store_address;
         $new_store->store_phone_number = $request->store_phone_number;
         $new_store->store_phone_number = $request->store_phone_number;
         $new_store->lat = $request->lat;
-        $new_store->lng = $request->lng;
+        $new_store->lng = $request->longitute_;
         $new_store->password = Hash::make($request->password);
         $new_store->show_pass = $request->password;
         $new_store->save();
@@ -39,13 +41,13 @@ class AdminMultivendorController extends Controller
 
     public function store_manage()
     {
-        $stores = multivendor_store::orderBy('id','desc')->paginate(15);
+        $stores = Multivendor_store_account::orderBy('id','desc')->paginate(15);
         return view('admin.store.manageStore',compact('stores'));
     }
 
     public function store_edit($id)
     {
-        $store = multivendor_store::where('id',$id)->first();
+        $store = Multivendor_store_account::where('id',$id)->first();
         return view('admin.store.editStore',compact('store'));
     }
 
@@ -53,7 +55,7 @@ class AdminMultivendorController extends Controller
     {
 
 
-        $update_store = multivendor_store::where('id',$request->store_edit_id)->first();
+        $update_store = Multivendor_store_account::where('id',$request->store_edit_id)->first();
         $update_store->store_name = $request->store_name;
         $update_store->store_email = $request->store_email;
         $update_store->store_address = $request->store_address;
@@ -71,7 +73,7 @@ class AdminMultivendorController extends Controller
 
     public function store_delete(Request $request)
     {
-        $delete_store = multivendor_store::where('id',$request->store_delete_id)->first();
+        $delete_store = Multivendor_store_account::where('id',$request->store_delete_id)->first();
         $delete_store->delete();
         return back()->with('success','Store Successfully Deleted');
     }

@@ -54,7 +54,7 @@
 
                                     <div class="form-group col-md-6 fill">
                                         <label for="exampleInputEmail1">Longitude</label>
-                                        <input type="text" name="lng " required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                        <input type="text" name="longitute " required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                     </div>
 
 

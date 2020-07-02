@@ -190,3 +190,13 @@ $factory->define(\App\restaurant_category::class, function (Faker $faker) {
     ];
 });
 
+
+$factory->define(\App\multivendorstore_sub_category::class, function (Faker $faker) {
+    return [
+        'user_id' => rand(2,52),
+        'main_category_id' => rand(2,52),
+        'category_name' => "Sub Cat ".Str::random(2),
+        'category_image' => "https://www.chanchao.com.tw/images/default.jpg",
+    ];
+});
+

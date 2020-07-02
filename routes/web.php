@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loadedlet  by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', 'Auth\AdminLoginController@showLoginform');
+Route::get('/', 'Auth\AdminLoginController@showLoginform')->name('custom.login');
+Route::post('/custom-login-submit', 'CustomLoginController@custom_login')->name('user.custom.login.submit');
 
 Auth::routes();
 
@@ -25,6 +26,8 @@ Route::prefix('admin')->group(function (){
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
+
+//admin start
 
 Route::group(['middleware' => ['auth:admin']], function() {
     Route::prefix('admin')->group(function() {
@@ -143,3 +146,48 @@ Route::group(['middleware' => ['auth:admin']], function() {
 
     });
 });
+//admin end
+Route::group(['middleware' => ['auth:multivendorstore']], function() {
+    Route::prefix('multivendorstore')->group(function() {
+
+        Route::get('/', 'MultivendorStore\MultivendorStoreController@index')->name('multivendorstore.dashboard');
+
+        //category
+        Route::get('/category', 'MultivendorStore\MultivendorStoreCategoryController@category')->name('multivendor.store.category');
+        Route::post('/category-save', 'MultivendorStore\MultivendorStoreCategoryController@category_save')->name('multivendorstore.category.save');
+        Route::post('/category-update', 'MultivendorStore\MultivendorStoreCategoryController@category_update')->name('multivendorestore.category.update');
+        Route::post('/category-delete', 'MultivendorStore\MultivendorStoreCategoryController@category_delete')->name('multivendorestore.category.delete');
+
+        //products
+        Route::get('/product-list', 'MultivendorStore\MultivendorStoreProductController@products_list')->name('multivendor.store.products');
+        Route::get('/product-create', 'MultivendorStore\MultivendorStoreProductController@products_create')->name('multivendorstore.create.product');
+        Route::post('/product-save', 'MultivendorStore\MultivendorStoreProductController@products_save')->name('multivendorstore.product.save');
+        Route::get('/product-edit/{id}', 'MultivendorStore\MultivendorStoreProductController@products_edit')->name('multivendorestore.edit.product');
+        Route::post('/product-update', 'MultivendorStore\MultivendorStoreProductController@products_update')->name('multivendorstore.product.update');
+        Route::post('/product-delete', 'MultivendorStore\MultivendorStoreProductController@products_delete')->name('multivendorestore.product.delete');
+
+
+    });
+});
+
+
+
+Route::group(['middleware' => ['auth:provider']], function() {
+    Route::prefix('provider')->group(function() {
+
+        Route::get('/', 'Provider\ProviderController@index')->name('provider.dashboard');
+
+
+    });
+});
+
+
+Route::group(['middleware' => ['auth:restaurant']], function() {
+    Route::prefix('restaurant')->group(function() {
+
+        Route::get('/', 'Restaurant\RestaurantController@index')->name('restaurant.dashboard');
+
+
+    });
+});
+

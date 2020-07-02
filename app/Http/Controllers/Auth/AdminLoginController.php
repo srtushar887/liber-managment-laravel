@@ -30,9 +30,13 @@ class AdminLoginController extends Controller
         ]);
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
             return redirect(route('admin.dashboard'));
+        }elseif (Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)) {
+            return redirect(route('admin.dashboard'));
+        }else{
+            return redirect()->back();
         }
 
-        return redirect()->back();
+
 
     }
 
@@ -42,6 +46,13 @@ class AdminLoginController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect(route('admin.login'));
+        return redirect(route('custom.login'));
     }
+
+    public function Storelogout()
+    {
+        Auth::guard('multivendor')->logout();
+        return redirect(route('custom.login'));
+    }
+
 }

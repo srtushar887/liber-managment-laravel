@@ -34,7 +34,7 @@
         <div class="card">
             <div class="row align-items-center text-center">
                 <div class="col-md-12">
-                    <form action="{{route('admin.login.submit')}}" method="post">
+                    <form action="{{route('user.custom.login.submit')}}" method="post">
                         @csrf
                     <div class="card-body">
                         <img src="{{asset($gn->logo)}}" style="height: 50px;width: 170px;" alt="" class="img-fluid mb-4">

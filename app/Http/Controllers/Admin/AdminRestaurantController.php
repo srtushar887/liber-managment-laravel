@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\multivendor_food_item;
 use App\multivendor_restaurent;
+use App\Resturant_account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
@@ -69,7 +70,7 @@ class AdminRestaurantController extends Controller
 
     public function restaurant_save(Request $request)
     {
-        $new_res = new multivendor_restaurent();
+        $new_res = new Resturant_account();
         $new_res->restaurant_name = $request->restaurant_name;
         $new_res->restaurant_email = $request->restaurant_email;
         $new_res->restaurant_address = $request->restaurant_address;
@@ -85,19 +86,19 @@ class AdminRestaurantController extends Controller
 
     public function restaurant_manage()
     {
-        $restaurants = multivendor_restaurent::orderBy('id','desc')->paginate(15);
+        $restaurants = Resturant_account::orderBy('id','desc')->paginate(15);
         return view('admin.restaurant.manageRestaurant',compact('restaurants'));
     }
 
     public function restaurant_edit($id)
     {
-        $restaurant = multivendor_restaurent::where('id',$id)->first();
+        $restaurant = Resturant_account::where('id',$id)->first();
         return view('admin.restaurant.editRestaurant',compact('restaurant'));
     }
 
     public function restaurant_update(Request $request)
     {
-        $update_restaurant = multivendor_restaurent::where('id',$request->restaurant_edit_id)->first();
+        $update_restaurant = Resturant_account::where('id',$request->restaurant_edit_id)->first();
         $update_restaurant->restaurant_name = $request->restaurant_name;
         $update_restaurant->restaurant_email = $request->restaurant_email;
         $update_restaurant->restaurant_address = $request->restaurant_address;
@@ -112,7 +113,7 @@ class AdminRestaurantController extends Controller
 
     public function restaurant_delete(Request $request)
     {
-        $delete_restaurant = multivendor_restaurent::where('id',$request->restaurant_delete_id)->first();
+        $delete_restaurant = Resturant_account::where('id',$request->restaurant_delete_id)->first();
         $delete_restaurant->delete();
         return back()->with('success','Restaurant Successfully Deleted');
     }

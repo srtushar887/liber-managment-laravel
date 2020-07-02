@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Provider extends Authenticatable
+class Multivendor_store_account extends Authenticatable
 {
     use Notifiable;
 
@@ -15,8 +15,7 @@ class Provider extends Authenticatable
      *
      * @var array
      */
-
-    protected $guard = 'provider';
+    protected $guard = 'multivendorstore';
 
     protected $fillable = [
         'name', 'email', 'password',

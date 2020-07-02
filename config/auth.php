@@ -47,6 +47,7 @@ return [
             'hash' => false,
         ],
 
+        //this is for admin guard
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
@@ -57,6 +58,45 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
+
+        //this is for multivendor guard
+        'multivendorstore' => [
+            'driver' => 'session',
+            'provider' => 'multivendorstores',
+        ],
+
+        //this is for multivendor api
+        'multivendorstore-api' => [
+            'driver' => 'token',
+            'provider' => 'multivendorstores',
+        ],
+
+        //provider
+        'provider' => [
+            'driver' => 'session',
+            'provider' => 'providers',
+        ],
+
+        //this is for multivendor api
+        'provider-api' => [
+            'driver' => 'token',
+            'provider' => 'providers',
+        ],
+
+        //provider
+        'restaurant' => [
+            'driver' => 'session',
+            'provider' => 'restaurants',
+        ],
+
+        //this is for multivendor api
+        'restaurant-api' => [
+            'driver' => 'token',
+            'provider' => 'restaurants',
+        ],
+
+
+
     ],
 
     /*
@@ -87,6 +127,24 @@ return [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
+
+        'multivendorstores' => [
+            'driver' => 'eloquent',
+            'model' => App\Multivendor_store_account::class,
+        ],
+
+        'providers' => [
+            'driver' => 'eloquent',
+            'model' => App\Provider::class,
+        ],
+
+        'restaurants' => [
+            'driver' => 'eloquent',
+            'model' => App\Resturant_account::class,
+        ],
+
+
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -122,6 +180,26 @@ return [
             'table' => 'password_resets',
             'expire' => 15,
         ],
+
+        'multivendorstores' => [
+            'provider' => 'multivendorstores',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+
+        'providers' => [
+            'provider' => 'providers',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+
+        'restaurants' => [
+            'provider' => 'restaurants',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+
+
     ],
 
     /*
