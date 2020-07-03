@@ -15,7 +15,7 @@ class MultivendorStoreCategoryController extends Controller
     {
         $store_cats = store_category::all();
         $all_cats = multivendorstore_sub_category::orderBy('id','desc')
-            ->where('user_id',Auth::user()->id)
+            ->where('store_id',Auth::user()->id)
             ->with('storecat')
             ->paginate(20);
         return view('multivendorstore.category.category',compact('store_cats','all_cats'));
@@ -36,7 +36,7 @@ class MultivendorStoreCategoryController extends Controller
 
 
 
-        $new_cat->user_id = Auth::user()->id;
+        $new_cat->store_id = Auth::user()->id;
         $new_cat->main_category_id = $request->main_category_id;
         $new_cat->category_name = $request->category_name;
         $new_cat->save();
@@ -60,7 +60,7 @@ class MultivendorStoreCategoryController extends Controller
 
 
 
-        $update_cat->user_id = Auth::user()->id;
+        $update_cat->store_id = Auth::user()->id;
         $update_cat->main_category_id = $request->main_category_id;
         $update_cat->category_name = $request->category_name;
         $update_cat->save();

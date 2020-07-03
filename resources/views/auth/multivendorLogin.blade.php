@@ -34,21 +34,21 @@
         <div class="card">
             <div class="row align-items-center text-center">
                 <div class="col-md-12">
-                    <form action="{{route('admin.login.submit')}}" method="post">
+                    <form action="{{route('multivendorstore.login.submit')}}" method="post">
                         @csrf
-                    <div class="card-body">
-                        <img src="{{asset($gn->logo)}}" style="height: 50px;width: 170px;" alt="" class="img-fluid mb-4">
-                        <h4 class="mb-3 f-w-400">Signin</h4>
-                        <div class="form-group mb-3">
-                            <label class="floating-label" for="Email">Email address</label>
-                            <input type="text" name="email" class="form-control" id="Email" placeholder="">
+                        <div class="card-body">
+                            <img src="{{asset($gn->logo)}}" style="height: 50px;width: 170px;" alt="" class="img-fluid mb-4">
+                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <div class="form-group mb-3">
+                                <label class="floating-label" for="Email">Email address</label>
+                                <input type="text" name="email" class="form-control" id="Email" placeholder="">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="floating-label" for="Password">Password</label>
+                                <input type="password" name="password" class="form-control" id="Password" placeholder="">
+                            </div>
+                            <button type="submit" class="btn btn-block btn-primary mb-4">Signin</button>
                         </div>
-                        <div class="form-group mb-4">
-                            <label class="floating-label" for="Password">Password</label>
-                            <input type="password" name="password" class="form-control" id="Password" placeholder="">
-                        </div>
-                        <button type="submit" class="btn btn-block btn-primary mb-4">Signin</button>
-                       </div>
                     </form>
                 </div>
             </div>

@@ -14,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//user login register api
+
+Route::post('v1/user/register','API\Auth\UserRegisterController@user_register');
+Route::post('v1/user/login','API\Auth\UserRegisterController@user_login');
+
+
+Route::group(['middleware' => ['auth:api']], function() {
+    Route::prefix('v1/user')->group(function() {
+
+        Route::get('/logout','API\User\UserController@user_logout');
+
+        //user multivendor store
+        Route::get('/multivendor/store','API\User\UserController@multivendor_store_get');
+        Route::get('/multivendor/store/category/{id}','API\User\UserController@multivendor_store_category');
+        Route::get('/multivendor/store/product/{id}','API\User\UserController@multivendor_store_product');
+
+    });
 });
+
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});

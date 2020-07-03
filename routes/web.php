@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Auth\AdminLoginController@showLoginform')->name('custom.login');
+Route::get('/', 'FrontendController@index')->name('front');
 Route::post('/custom-login-submit', 'CustomLoginController@custom_login')->name('user.custom.login.submit');
 
 Auth::routes();
@@ -147,6 +147,17 @@ Route::group(['middleware' => ['auth:admin']], function() {
     });
 });
 //admin end
+
+
+
+//multivendor module
+
+Route::prefix('multivendorstore')->group(function (){
+    Route::get('/login', 'Auth\MultivendorLoginController@showLoginform')->name('multivendorstore.login');
+    Route::post('/login', 'Auth\MultivendorLoginController@login')->name('multivendorstore.login.submit');
+    Route::get('/logout', 'Auth\MultivendorLoginController@logout')->name('multivendorstore.logout');
+});
+
 Route::group(['middleware' => ['auth:multivendorstore']], function() {
     Route::prefix('multivendorstore')->group(function() {
 
@@ -172,16 +183,8 @@ Route::group(['middleware' => ['auth:multivendorstore']], function() {
 
 
 
-Route::group(['middleware' => ['auth:provider']], function() {
-    Route::prefix('provider')->group(function() {
 
-        Route::get('/', 'Provider\ProviderController@index')->name('provider.dashboard');
-
-
-    });
-});
-
-
+//restaurant module
 Route::group(['middleware' => ['auth:restaurant']], function() {
     Route::prefix('restaurant')->group(function() {
 
@@ -204,4 +207,18 @@ Route::group(['middleware' => ['auth:restaurant']], function() {
 
     });
 });
+
+
+
+
+Route::group(['middleware' => ['auth:provider']], function() {
+    Route::prefix('provider')->group(function() {
+
+        Route::get('/', 'Provider\ProviderController@index')->name('provider.dashboard');
+
+
+    });
+});
+
+
 

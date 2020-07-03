@@ -13,7 +13,7 @@ class MultivendorStoreProductController extends Controller
 {
     public function products_list()
     {
-        $all_products = multivendore_store_product::where('user_id',Auth::user()->id)
+        $all_products = multivendore_store_product::where('store_id',Auth::user()->id)
             ->with('subcats')
             ->paginate(15);
         return view('multivendorstore.products.products',compact('all_products'));
@@ -21,7 +21,7 @@ class MultivendorStoreProductController extends Controller
 
     public function products_create()
     {
-        $sub_cats = multivendorstore_sub_category::where('user_id',Auth::user()->id)->get();
+        $sub_cats = multivendorstore_sub_category::where('store_id',Auth::user()->id)->get();
         return view('multivendorstore.products.productCreate',compact('sub_cats'));
     }
 
@@ -81,7 +81,7 @@ class MultivendorStoreProductController extends Controller
             $new_product->product_image_five = $imgUrl6;
         }
 
-        $new_product->user_id = Auth::user()->id;
+        $new_product->store_id = Auth::user()->id;
         $new_product->product_name = $request->product_name;
         $new_product->product_category = $request->product_category;
         $new_product->product_old_price = $request->product_old_price;
@@ -98,7 +98,7 @@ class MultivendorStoreProductController extends Controller
 
     public function products_edit($id)
     {
-        $sub_cats = multivendorstore_sub_category::where('user_id',Auth::user()->id)->get();
+        $sub_cats = multivendorstore_sub_category::where('store_id',Auth::user()->id)->get();
         $product = multivendore_store_product::where('id',$id)->first();
         return view('multivendorstore.products.productEdit',compact('sub_cats','product'));
     }
