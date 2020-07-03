@@ -188,6 +188,20 @@ Route::group(['middleware' => ['auth:restaurant']], function() {
         Route::get('/', 'Restaurant\RestaurantController@index')->name('restaurant.dashboard');
 
 
+        //category
+        Route::get('/category', 'Restaurant\RestaurantCategoryController@category')->name('restaurant.category');
+        Route::post('/category-save', 'Restaurant\RestaurantCategoryController@category_save')->name('restaurant.category.save');
+        Route::post('/category-update', 'Restaurant\RestaurantCategoryController@category_update')->name('restaurant.category.update');
+        Route::post('/category-delete', 'Restaurant\RestaurantCategoryController@category_delete')->name('restaurant.category.delete');
+
+        //food item
+        Route::get('/food-item-list', 'Restaurant\RestaurantFoodController@food_list')->name('restaurant.food');
+        Route::post('/food-item-save', 'Restaurant\RestaurantFoodController@food_item_save')->name('restaurant.food.save');
+        Route::post('/food-item-update', 'Restaurant\RestaurantFoodController@food_item_update')->name('restaurant.food.update');
+        Route::post('/food-item-delete', 'Restaurant\RestaurantFoodController@food_item_delete')->name('restaurant.food.delete');
+
+
+
     });
 });
 
