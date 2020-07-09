@@ -144,6 +144,16 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/delete-driver', 'Admin\AdminDriverController@delete_driver')->name('admin.driver.delete');
         Route::post('/password-change-driver', 'Admin\AdminDriverController@password_change_driver')->name('admin.driver.chnage.password.save');
 
+
+        //manage taxi
+        Route::get('/vehicle-lists', 'Admin\AdminVhicleController@vechile_list')->name('admin.taxi.lists');
+        Route::post('/vehicle-create', 'Admin\AdminVhicleController@vechile_create')->name('admin.vechile.save');
+        Route::post('/vehicle-update', 'Admin\AdminVhicleController@vechile_update')->name('admin.vechile.update');
+        Route::post('/vehicle-delete', 'Admin\AdminVhicleController@vechile_delete')->name('admin.vechile.delete');
+
+        //assign vehicle
+        Route::post('/vehicle-assign', 'Admin\AdminVhicleController@vechile_assign')->name('admin.assign.vehicle');
+
     });
 });
 //admin end
@@ -177,6 +187,14 @@ Route::group(['middleware' => ['auth:multivendorstore']], function() {
         Route::post('/product-update', 'MultivendorStore\MultivendorStoreProductController@products_update')->name('multivendorstore.product.update');
         Route::post('/product-delete', 'MultivendorStore\MultivendorStoreProductController@products_delete')->name('multivendorestore.product.delete');
 
+        //order
+        Route::get('/orders', 'MultivendorStore\MultivendorStoreOrderController@orders')->name('multivendor.store.order');
+
+        //statement
+        Route::get('/daily-statement', 'MultivendorStore\MultivendorStoreStatementController@daily_statement')->name('multivendor.store.daily.statement');
+        Route::get('/monthly-statement', 'MultivendorStore\MultivendorStoreStatementController@monthly_statement')->name('multivendor.store.monthly.statement');
+        Route::get('/yearly-statement', 'MultivendorStore\MultivendorStoreStatementController@myearly_statement')->name('multivendor.store.yearly.statement');
+
 
     });
 });
@@ -185,6 +203,15 @@ Route::group(['middleware' => ['auth:multivendorstore']], function() {
 
 
 //restaurant module
+
+
+Route::prefix('restaurant')->group(function (){
+    Route::get('/login', 'Auth\RestauratLoginController@showLoginform')->name('restaurant.login');
+    Route::post('/login', 'Auth\RestauratLoginController@login')->name('restaurant.login.submit');
+    Route::get('/logout', 'Auth\RestauratLoginController@logout')->name('restaurant.logout');
+});
+
+
 Route::group(['middleware' => ['auth:restaurant']], function() {
     Route::prefix('restaurant')->group(function() {
 
@@ -210,11 +237,30 @@ Route::group(['middleware' => ['auth:restaurant']], function() {
 
 
 
+//taxi provider
+
+Route::prefix('taxi-provider')->group(function (){
+    Route::get('/login', 'Auth\ProviderLoginController@showLoginform')->name('provider.login');
+    Route::post('/login', 'Auth\ProviderLoginController@login')->name('provider.login.submit');
+    Route::get('/logout', 'Auth\ProviderLoginController@logout')->name('provider.logout');
+});
+
 
 Route::group(['middleware' => ['auth:provider']], function() {
-    Route::prefix('provider')->group(function() {
+    Route::prefix('taxi-provider')->group(function() {
 
         Route::get('/', 'Provider\ProviderController@index')->name('provider.dashboard');
+
+        //category
+        Route::get('/category', 'Provider\ProviderCategoryController@category')->name('provider.category');
+        Route::post('/category-save', 'Provider\ProviderCategoryController@category_save')->name('provider.category.save');
+        Route::post('/category-update', 'Provider\ProviderCategoryController@category_update')->name('provider.category.update');
+        Route::post('/category-delete', 'Provider\ProviderCategoryController@category_delete')->name('provider.category.delete');
+
+       //taxi management
+        Route::get('/taxi-management', 'Provider\ProviderTaxiController@taxi_lists')->name('taxi.management');
+        Route::get('/taxi-create', 'Provider\ProviderTaxiController@taxi_create')->name('provider.create.taxi');
+        Route::post('/taxi-save', 'Provider\ProviderTaxiController@taxi_save')->name('provider.taxi.save');
 
 
     });

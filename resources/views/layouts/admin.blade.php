@@ -164,6 +164,21 @@
                 </li>
 
 
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Vehicle Management</label>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.taxi.lists')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage Vehicle</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.assign.vehicle')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Assign Vehicle</span></a>
+                </li>
+
+
+
+
 
 
             </ul>

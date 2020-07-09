@@ -78,6 +78,25 @@
                     <a href="{{route('multivendor.store.products')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Product Management</span></a>
                 </li>
 
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Order Management</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('multivendor.store.order')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Order Management</span></a>
+                </li>
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Statement</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('multivendor.store.daily.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Daily Statement </span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('multivendor.store.monthly.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Monthly Statement </span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('multivendor.store.yearly.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Yearly Statement </span></a>
+                </li>
+
 
 
 

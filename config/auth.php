@@ -135,7 +135,7 @@ return [
 
         'providers' => [
             'driver' => 'eloquent',
-            'model' => App\Provider::class,
+            'model' => App\Provider_account::class,
         ],
 
         'restaurants' => [

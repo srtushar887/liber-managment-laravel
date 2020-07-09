@@ -65,6 +65,9 @@ class Handler extends ExceptionHandler
             case 'multivendorstore':
                 $login = 'multivendorstore.login';
                 break;
+            case 'restaurant':
+                $login = 'restaurant.login';
+                break;
             default:
                 $login = 'login';
                 break;

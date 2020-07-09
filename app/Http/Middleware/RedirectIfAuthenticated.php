@@ -29,6 +29,11 @@ class RedirectIfAuthenticated
                     return redirect()->route('multivendorstore.dashboard');
                 }
                 break;
+            case 'restaurant':
+                if(Auth::guard($guard)->check()){
+                    return redirect()->route('restaurant.dashboard');
+                }
+                break;
 
             default:
                 if (Auth::guard($guard)->check()) {

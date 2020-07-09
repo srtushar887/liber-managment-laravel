@@ -52,7 +52,7 @@
                     <ul class="list-unstyled">
                         <li class="list-group-item"><a href="{{route('admin.profile')}}"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
                         <li class="list-group-item"><a href="{{route('admin.change.password')}}"><i class="feather icon-settings m-r-5"></i>Change Password</a></li>
-                        <li class="list-group-item"><a href="{{route('admin.logout')}}"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                        <li class="list-group-item"><a href="{{route('restaurant.logout')}}"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                         <ul class="pro-body">
                             <li><a href="{{route('admin.profile')}}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
                             <li><a href="{{route('admin.change.password')}}" class="dropdown-item"><i class="feather icon-mail"></i> Change Password</a></li>
-                            <li><a href="{{route('admin.logout')}}" class="dropdown-item"><i class="feather icon-lock"></i> Log Out</a></li>
+                            <li><a href="{{route('restaurant.logout')}}" class="dropdown-item"><i class="feather icon-lock"></i> Log Out</a></li>
                         </ul>
                     </div>
                 </div>

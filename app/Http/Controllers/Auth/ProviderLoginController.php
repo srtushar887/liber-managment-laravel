@@ -6,17 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MultivendorLoginController extends Controller
+class ProviderLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:multivendorstore',['except'=>['logout']]);
+        $this->middleware('guest:provider',['except'=>['logout']]);
     }
 
 
     public function showLoginform()
     {
-        return view('auth.multivendorLogin');
+        return view('auth.providerLogin');
     }
 
 
@@ -28,8 +28,8 @@ class MultivendorLoginController extends Controller
             'email' => 'required',
             'password' => 'required|min:8'
         ]);
-        if(Auth::guard('multivendorstore')->attempt(['store_email'=>$request->email,'password'=>$request->password],$request->remember)){
-            return redirect(route('multivendorstore.dashboard'));
+        if(Auth::guard('provider')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
+            return redirect(route('provider.dashboard'));
         }else{
             return redirect()->back();
         }
@@ -38,11 +38,12 @@ class MultivendorLoginController extends Controller
 
     }
 
+
+
+    //this funsion for admin logout which i customized to cpy form loginController
     public function logout()
     {
-        Auth::guard('multivendorstore')->logout();
+        Auth::guard('provider')->logout();
         return redirect(route('front'));
     }
-
-
 }
