@@ -109,6 +109,7 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::get('/restaurant-edit/{id}', 'Admin\AdminRestaurantController@restaurant_edit')->name('admin.restaurant.edit');
         Route::post('/restaurant-update', 'Admin\AdminRestaurantController@restaurant_update')->name('admin.restaurant.update');
         Route::post('/restaurant-delete', 'Admin\AdminRestaurantController@restaurant_delete')->name('admin.restaurant.delete');
+        Route::get('/restaurant-orders', 'Admin\AdminRestaurantController@restaurant_orders')->name('admin.restaurant.orders');
 
 
         //store management
@@ -118,12 +119,25 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::get('/store-edit/{id}', 'Admin\AdminMultivendorController@store_edit')->name('admin.store.edit');
         Route::post('/store-update', 'Admin\AdminMultivendorController@store_update')->name('admin.store.update');
         Route::post('/store-delete', 'Admin\AdminMultivendorController@store_delete')->name('admin.store.delete');
+        Route::get('/store-orders', 'Admin\AdminMultivendorController@store_orders')->name('admin.store.orders');
+
+
+
+//        //delivery boy
+        Route::get('/delivery-boy-create', 'Admin\AdminDeliveryBoyController@create_delivery_boy')->name('admin.delivery.boy.create');
+        Route::post('/delivery-boy-save', 'Admin\AdminDeliveryBoyController@save_delivery_boy')->name('admin.deliveryboy.save');
+        Route::get('/delivery-boy-manage', 'Admin\AdminDeliveryBoyController@manage_delivery_boy')->name('admin.delivery.boy.manage');
+        Route::get('/delivery-boy-edit/{id}', 'Admin\AdminDeliveryBoyController@edit_delivery_boy')->name('admin.deliveryboy.edit');
+        Route::post('/delivery-boy-update', 'Admin\AdminDeliveryBoyController@update_delivery_boy')->name('admin.deliveryboy.update');
+        Route::post('/delivery-boy-delete', 'Admin\AdminDeliveryBoyController@delete_delivery_boy')->name('admin.deliveryboy.delete');
+        Route::post('/delivery-boy-change-password-save', 'Admin\AdminDeliveryBoyController@change_password_delivery_boy')->name('admin.deliveryboy.chnage.password.save');
+
 
         //multivendor deliver boy
-        Route::get('/delivery-boy', 'Admin\AdminMultivendorController@deliver_boy')->name('admin.deliver.boy');
-        Route::post('/delivery-boy-save', 'Admin\AdminMultivendorController@deliver_boy_save')->name('admin.delivery.boy.save');
-        Route::post('/delivery-boy-update', 'Admin\AdminMultivendorController@deliver_boy_update')->name('admin.delivery.boy.update');
-        Route::post('/delivery-boy-delete', 'Admin\AdminMultivendorController@deliver_boy_delete')->name('admin.delivery.boy.delete');
+//        Route::get('/delivery-boy', 'Admin\AdminMultivendorController@deliver_boy')->name('admin.deliver.boy');
+//        Route::post('/delivery-boy-save', 'Admin\AdminMultivendorController@deliver_boy_save')->name('admin.delivery.boy.save');
+//        Route::post('/delivery-boy-update', 'Admin\AdminMultivendorController@deliver_boy_update')->name('admin.delivery.boy.update');
+//        Route::post('/delivery-boy-delete', 'Admin\AdminMultivendorController@deliver_boy_delete')->name('admin.delivery.boy.delete');
 
         //provider management
         Route::get('/provider-create', 'Admin\AdminProviderController@create_provider')->name('admin.provider.create');
@@ -162,14 +176,14 @@ Route::group(['middleware' => ['auth:admin']], function() {
 
 //multivendor module
 
-Route::prefix('multivendorstore')->group(function (){
+Route::prefix('ecommerce')->group(function (){
     Route::get('/login', 'Auth\MultivendorLoginController@showLoginform')->name('multivendorstore.login');
     Route::post('/login', 'Auth\MultivendorLoginController@login')->name('multivendorstore.login.submit');
     Route::get('/logout', 'Auth\MultivendorLoginController@logout')->name('multivendorstore.logout');
 });
 
 Route::group(['middleware' => ['auth:multivendorstore']], function() {
-    Route::prefix('multivendorstore')->group(function() {
+    Route::prefix('ecommerce')->group(function() {
 
         Route::get('/', 'MultivendorStore\MultivendorStoreController@index')->name('multivendorstore.dashboard');
 
@@ -230,6 +244,13 @@ Route::group(['middleware' => ['auth:restaurant']], function() {
         Route::post('/food-item-update', 'Restaurant\RestaurantFoodController@food_item_update')->name('restaurant.food.update');
         Route::post('/food-item-delete', 'Restaurant\RestaurantFoodController@food_item_delete')->name('restaurant.food.delete');
 
+        //order
+        Route::get('/orders', 'Restaurant\RestaurantOrderController@orders')->name('restaurant.store.order');
+
+        //statement
+        Route::get('/daily-statement', 'Restaurant\RestaurantStatementController@daily_statement')->name('restaurant.store.daily.statement');
+        Route::get('/monthly-statement', 'Restaurant\RestaurantStatementController@monthly_statement')->name('restaurant.store.monthly.statement');
+        Route::get('/yearly-statement', 'Restaurant\RestaurantStatementController@myearly_statement')->name('restaurant.store.yearly.statement');
 
 
     });

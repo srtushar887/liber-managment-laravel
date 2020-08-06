@@ -46,9 +46,9 @@
                             <a href="{{route('restaurant.login')}}">
                                 <button type="button" class="btn btn-block btn-primary mb-4">Login As Restaurant</button>
                             </a>
-                            <a href="{{route('provider.login')}}">
-                                <button type="button" class="btn btn-block btn-primary mb-4">Login As Taxi Provider</button>
-                            </a>
+{{--                            <a href="{{route('provider.login')}}">--}}
+{{--                                <button type="button" class="btn btn-block btn-primary mb-4">Login As Taxi Provider</button>--}}
+{{--                            </a>--}}
                             <p class="mb-2">Lost your password? <a href="auth-signin.html" class="f-w-400">Forgot Password</a></p>
                         </div>
                     </form>

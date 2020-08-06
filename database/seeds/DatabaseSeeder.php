@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
 //        factory(\App\machinery_category::class,50)->create();
 //        factory(\App\store_category::class,50)->create();
 //        factory(\App\restaurant_category::class,50)->create();
-        factory(\App\multivendorstore_sub_category::class,50)->create();
+//        factory(\App\multivendorstore_sub_category::class,50)->create();
+        factory(\App\delivery_boy::class,50)->create();
     }
 }

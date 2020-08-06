@@ -117,4 +117,12 @@ class AdminRestaurantController extends Controller
         $delete_restaurant->delete();
         return back()->with('success','Restaurant Successfully Deleted');
     }
+
+
+    public function restaurant_orders()
+    {
+        return view('admin.restaurant.restaurantOrders');
+    }
+
+
 }

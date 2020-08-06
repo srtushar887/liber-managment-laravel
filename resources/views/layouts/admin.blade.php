@@ -135,19 +135,38 @@
                 <li class="nav-item">
                     <a href="{{route('admin.restaurant.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manager Restaurant</span></a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.restaurant.orders')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Order Management</span></a>
+                </li>
 
 
 
                 <li class="nav-item pcoded-menu-caption">
-                    <label>Multivendor Management</label>
+                    <label>Ecommerce Management</label>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.store.create')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Create Store</span></a>
+                    <a href="{{route('admin.store.create')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Create  Store</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.store.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage Store</span></a>
+                    <a href="{{route('admin.store.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage  Store</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.store.orders')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Order Management</span></a>
+                </li>
+
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Delivery Boy Management</label>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.delivery.boy.create')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Create Delivery Boy</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.delivery.boy.manage')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Manage Delivery Boy</span></a>
                 </li>
 
 

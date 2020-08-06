@@ -78,6 +78,26 @@
                     <a href="{{route('restaurant.food')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Food Item</span></a>
                 </li>
 
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Order Management</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('restaurant.store.order')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Order Management</span></a>
+                </li>
+
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Statement</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('restaurant.store.daily.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Daily Statement</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('restaurant.store.monthly.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Monthly Statement </span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('restaurant.store.yearly.statement')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Yearly Statement </span></a>
+                </li>
+
 
 
 

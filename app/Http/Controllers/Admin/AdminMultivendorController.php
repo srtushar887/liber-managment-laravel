@@ -117,6 +117,13 @@ class AdminMultivendorController extends Controller
     }
 
 
+    public function store_orders()
+    {
+        return view('admin.store.storeOrders');
+    }
+
+
+
 
 
 

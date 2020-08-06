@@ -200,3 +200,18 @@ $factory->define(\App\multivendorstore_sub_category::class, function (Faker $fak
     ];
 });
 
+
+
+$factory->define(\App\delivery_boy::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'phone_number' => $faker->phoneNumber,
+        'dob' => $faker->date,
+        'gender' => rand(1,2),
+        'address' => $faker->address,
+        'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+        'show_password' => "12345678",
+    ];
+});
+
