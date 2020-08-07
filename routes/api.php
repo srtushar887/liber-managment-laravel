@@ -25,10 +25,10 @@ Route::group(['middleware' => ['auth:api']], function() {
 
         Route::get('/logout','API\User\UserController@user_logout');
 
-        //user multivendor store
-        Route::get('/multivendor/store','API\User\UserController@multivendor_store_get');
-        Route::get('/multivendor/store/category/{id}','API\User\UserController@multivendor_store_category');
-        Route::get('/multivendor/store/product/{id}','API\User\UserController@multivendor_store_product');
+        //user ecommerce store
+        Route::get('/ecommerce/store','API\Ecommerce\UserEcommerceController@ecommerce_store_get');
+        Route::get('/ecommerce/store/category/{id}','API\Ecommerce\UserEcommerceController@ecommerce_store_category');
+        Route::get('/ecommerce/store/product/{id}','API\Ecommerce\UserEcommerceController@ecommerce_store_product');
 
     });
 });

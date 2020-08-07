@@ -29,26 +29,29 @@ class UserRegisterController extends Controller
                 'status' => 'error',
                 'msg' => $validator->errors()
             ]);
+        }else{
+            $new_user = new User();
+            $new_user->name = $request->name;
+            $new_user->email = $request->email;
+            $new_user->phone_number = $request->phone_number;
+            $new_user->dob = $request->dob;
+            $new_user->gender = $request->gender;
+            $new_user->address = $request->address;
+            $new_user->password = Hash::make($request->password);
+            $new_user->show_password = $request->password;
+            $new_user->save();
+
+            $success['token'] =  $new_user->createToken('liberApp')->accessToken;
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User Account Successfully Register',
+                'access_token' =>   $success['token'],
+                'token_type' => 'Bearer',
+            ]);
         }
 
-        $new_user = new User();
-        $new_user->name = $request->name;
-        $new_user->email = $request->email;
-        $new_user->phone_number = $request->phone_number;
-        $new_user->dob = $request->dob;
-        $new_user->gender = $request->gender;
-        $new_user->password = Hash::make($request->password);
-        $new_user->show_password = $request->password;
-        $new_user->save();
 
-        $success['token'] =  $new_user->createToken('liberApp')->accessToken;
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'User Account Successfully Register',
-            'access_token' =>   $success['token'],
-            'token_type' => 'Bearer',
-        ]);
 
     }
 
@@ -72,13 +75,18 @@ class UserRegisterController extends Controller
                 'message' => 'These credentials do not match our records.'
             ],200);
         }else{
+
             $user = Auth::user();
             $success['token'] =  $user->createToken('liberApp')->accessToken;
+
+            $user_details = User::where('id',Auth::user()->id)->first();
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'User Successfully Login',
                 'access_token' =>   $success['token'],
                 'token_type' => 'Bearer',
+                'user_details' => $user_details
             ]);
 
         }

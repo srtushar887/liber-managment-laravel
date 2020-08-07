@@ -33,6 +33,7 @@ class AdminMultivendorController extends Controller
         $new_store->lng = $request->longitute_;
         $new_store->password = Hash::make($request->password);
         $new_store->show_pass = $request->password;
+        $new_store->status = 1;
         $new_store->save();
 
         return back()->with('success','Store Successfully Created');
